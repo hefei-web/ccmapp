@@ -1,0 +1,527 @@
+/* 头部样式 */
+
+header {
+    display: flex;
+    justify-content: space-around;
+    background: linear-gradient(270deg, #7b4397, #2196f3);
+    height: 60px;
+    color: #fff;
+    overflow: hidden;
+}
+
+header .logo {
+    width: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 61px;
+    line-height: 61px;
+    padding: 0 5px 0 10px;
+    margin: 0;
+    background: #fff;
+    transition: all .5s linear;
+}
+
+header .logo img {
+    width: 40px;
+    margin-right: 10px;
+}
+
+header .logo a {
+    color: #707070;
+    font-weight: 700;
+    text-shadow: 1px 1px 3px #909399;
+    font-size: 16px;
+    overflow: hidden;
+    line-height: 20px;
+    width: auto;
+}
+
+header .nav {
+    width: 85%;
+}
+
+header .nav ul.left {
+    float: left;
+    position: relative;
+}
+
+header .nav ul.right {
+    float: right;
+    margin-right: 20px;
+}
+
+header .nav ul li {
+    display: inline-block;
+    font-size: 14px;
+    padding: 0 10px;
+    line-height: 60px;
+}
+
+header .nav ul li a {
+    color: #fff;
+}
+
+header .nav ul.left li {
+    margin-left: 30px;
+}
+
+header .nav ul.left li:first-child {
+    cursor: pointer;
+    width: 10px;
+    height: 15px;
+    position: absolute;
+    left: 15px;
+    top: 22px;
+    margin: 0;
+}
+
+header .nav ul.left li strong {
+    color: #f5f7fa;
+    font-weight: 700;
+}
+
+header .nav ul.left li span {
+    margin: 0 10px;
+}
+
+header .nav ul.left li.left {
+    background: url(../image/left.svg)no-repeat;
+}
+
+header .nav ul.left li.right {
+    background: url(../image/right.svg)no-repeat;
+}
+
+header .nav ul.right li {
+    margin-left: 10px;
+    text-indent: 12px;
+}
+
+.close,
+.logo.close {
+    width: 0;
+    min-width: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+aside.close {
+    height: 0;
+}
+
+header .nav ul.right li:nth-child(1) {
+    background: url(../image/msg.png) no-repeat left;
+}
+
+header .nav ul.right li:nth-child(2) {
+    background: url(../image/all.png) no-repeat left;
+}
+
+header .nav ul.right li:nth-child(3) {
+    background: url(../image/user.png) no-repeat left;
+}
+
+header .nav ul.right li:nth-child(4) {
+    background: url(../image/download.png) no-repeat left;
+}
+
+header .nav ul.right li:nth-child(5) {
+    background: url(../image/out.png) no-repeat left;
+}
+
+@media screen and (max-width:1200px) {
+    header .nav ul.left li:last-child span {
+        display: none;
+    }
+
+}
+
+@media screen and (max-width:992px) {
+
+    aside,
+    header .logo {
+        min-width: 140px;
+    }
+
+    header .nav ul.right li:nth-child(3),
+    header .nav ul.right li:nth-child(4) {
+        display: none;
+    }
+}
+
+@media screen and (max-width:578px) {
+    header .nav ul.right li {
+        display: none;
+    }
+
+    header .nav ul.right li:last-child {
+        display: block;
+    }
+}
+
+@media screen and (max-width:400px) {
+    header .nav ul.left li:last-child {
+        display: none;
+    }
+}
+
+/* 页面主体 */
+.main {
+    display: flex;
+    justify-content: space-around;
+}
+
+/* 侧边导航栏 */
+aside {
+    background-color: #fff;
+    box-shadow: 0 0 6px -2px #c0c4cc;
+    width: 15%;
+    padding: 0 5px 0 10px;
+    margin: 0;
+    position: relative;
+    left: 0;
+    border-radius: 4px;
+}
+
+aside .menu {
+    height: 100%;
+    padding: 5px 0 0 0;
+}
+
+aside .menu a {
+    color: #707070;
+}
+
+aside .menu ul li {
+    padding: 7px 5px;
+    border: none;
+    cursor: pointer;
+    line-height: 34px;
+    font-size: 14px;
+}
+
+aside .menu ul li ul li {
+    min-height: 22px;
+    line-height: 22px;
+    margin: 5px 0;
+}
+
+aside .menu ul li span {
+    display: inline-block;
+    width: 100%;
+    border-radius: 5px;
+    padding: 5px 0 5px 10px;
+}
+
+aside .menu ul li .open {
+    background: #f56c6c1f !important;
+    color: #f56c6c;
+    border-radius: 5px;
+    border-right: 4px solid #f56c6c;
+}
+
+aside .menu ul li a {
+    padding-left: 25px;
+}
+
+aside>.menu>ul>li:nth-child(1) a {
+    background: url(../image/icon1.svg) no-repeat left;
+}
+
+aside>.menu>ul>li:nth-child(2) a {
+    background: url(../image/icon2.svg) no-repeat left;
+}
+
+aside>.menu>ul>li:nth-child(3) a {
+    background: url(../image/icon3.svg) no-repeat left;
+}
+
+aside>.menu>ul>li:nth-child(4) a {
+    background: url(../image/icon4.svg) no-repeat left;
+}
+
+aside>.menu>ul>li:nth-child(5) a {
+    background: url(../image/icon5.svg) no-repeat left;
+}
+
+aside>.menu>ul>li:nth-child(6) a {
+    background: url(../image/icon6.svg) no-repeat left;
+}
+
+aside .menu ul li ul {
+    padding-left: 20px;
+    height: 0;
+    overflow: hidden;
+    transition: all .5s linear;
+}
+
+aside>.menu>ul>li:nth-child(2) span.open+ul {
+    height: 200px;
+}
+
+aside>.menu>ul>li:nth-child(3) span.open+ul,
+aside>.menu>ul>li:nth-child(4) span.open+ul,
+aside>.menu>ul>li:nth-child(5) span.open+ul,
+aside>.menu>ul>li:nth-child(6) span.open+ul {
+    height: 115px;
+}
+
+/* 主体部分 */
+section {
+    margin: 0;
+    overflow: hidden;
+    width: 85%;
+    font-size: 12px;
+}
+
+section .container {
+    padding: 5px;
+}
+
+section .container .row {
+    width: 100%;
+    display: flex;
+    margin: 0 0 10px 0;
+}
+
+section .box {
+    padding: 0 10px;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
+    border-radius: 4px;
+    border: 1px solid #ebeef5;
+    background-color: #fff;
+    color: #303133;
+    transition: .3s;
+
+}
+@media screen and (min-width:992px){
+    section{
+        height:695px;
+    }
+}
+section .box .content {
+    overflow: hidden;
+}
+section .box #table1 .content{
+    height: 315px;
+} 
+section .box #table2 .content{
+    height: 258px;
+} 
+section .box .content>div {
+    height: 100%;
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+    top: 0;
+    left: 0;
+    clear: both;
+    width: .5rem;
+    height: .5rem;
+    background: hsla(0, 0%, 100%, 0.6);
+    display: none;
+}
+
+section .box .content>div::-webkit-scrollbar {
+    display: block;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 0;
+}
+
+
+::-webkit-scrollbar-thumb {
+    border-radius: 0;
+    background-color: rgba(95, 95, 95, .4);
+    transition: all .2s;
+    border-radius: .5rem;
+}
+
+section .col-8 {
+    width: 62.5%
+}
+
+section .col-4 {
+    width: 37.5%
+}
+
+/* 选项卡 */
+section .table .tab {
+    width: 100%;
+    float: left;
+    position: relative;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #ebeef5;
+}
+
+section .table .tab li {
+    float: left;
+    padding: 0 20px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #303133;
+}
+
+section .table .tab li a {
+    color: #000;
+}
+
+section .table .tab li a:hover,
+section .table .tab li a.show {
+    color: #4b74ff;
+}
+
+section .table .tab .underline {
+    position: absolute;
+    left: 0;
+    top: 40px;
+    width: 30px;
+    margin: 0 20px;
+    height: 3px;
+    background: #4b74ff;
+    transition: all .3s linear;
+}
+
+section .content>div {
+    display: none;
+}
+
+section .content>.active {
+    display: block;
+}
+
+section .content {
+    clear: both;
+}
+
+section .content table {
+    text-align: center;
+    color: #606266;
+    overflow-y: auto;
+    border-spacing: 0;
+    border-collapse: separate;
+    border-spacing: 0px 8px;
+    width: 100%;
+}
+
+section .content table thead {
+    color: #909399;
+    font-weight: 500;
+    vertical-align: middle;
+}
+
+section .content table tbody tr {
+    border-radius: 4px;
+    border: 1px solid #ebeef5;
+    transition: background-color .25s ease;
+    background-color: #f2f3f5;
+}
+
+section .content table tbody tr:hover {
+    background-color: #ebeef5;
+}
+
+section .content table th,
+section .content table tbody td {
+    padding: 12px 5px;
+}
+
+section .content table thead th:nth-child(1) {
+    width: 40%;
+}
+
+section .content table thead th:nth-child(2) {
+    width: 20%;
+}
+
+section .content table thead th:nth-child(3) {
+    width: 20%;
+}
+
+section .content table thead th:nth-child(4) {
+    width: 20%;
+}
+
+section .content2 table thead th:nth-child(1) {
+    width: 10%;
+}
+
+section .content2 table thead th:nth-child(2) {
+    width: 50%;
+}
+
+section .content2 table thead th:nth-child(3) {
+    width: 20%;
+}
+
+section .content2 table thead th:nth-child(4) {
+    width: 20%;
+}
+
+
+section .weather {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 复选框 */
+section .content2 th,
+section .content2 td {
+    position: relative;
+}
+
+section .content input[type="checkbox"] {
+    position: absolute;
+    left: 20px;
+    top: 45%;
+}
+
+section .edit {
+    float: right;
+    padding: 5px 0 0 0;
+}
+
+section .edit button {
+    color: #fff;
+    background-color: #4b74ff;
+    border-color: #4b74ff;
+    padding: 7px 15px;
+    font-size: 12px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+section .edit:hover button {
+    padding: 7px 16px;
+}
+
+section #table3 h2 {
+    margin: 10px 0 0 0;
+}
+section #table3 .content{
+    height:200px;
+}
+@media screen and (max-width:990px){
+    section .container .row{
+        flex-flow: wrap;
+    }
+    section .col-8,section .col-4{
+        width:100%;
+    }
+    section .weather{
+        display: none;
+    }
+    section .col-8.mr-10{
+        margin-right: 0;
+    }
+}
+@media screen and (max-width:487px){
+
+}

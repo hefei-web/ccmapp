@@ -1,0 +1,393 @@
+.main {
+    background: #fff;
+}
+
+section {
+    padding: 10px;
+    background: #f3f3f3;
+    color: #2c2c2c;
+    overflow: auto;
+}
+
+.main section::-webkit-scrollbar {
+    display: block;
+}
+
+section .submit {
+    display: flex;
+    justify-content: flex-end;
+}
+
+section .submit a {
+    cursor: pointer;
+    display: inline-block;
+    color: #fff;
+    padding: 8px 15px;
+    margin: 0 0 0 10px;
+    border-radius: 4px;
+    background: #4b74ff;
+    font-size: 12px;
+}
+
+section .submit .ts {
+    background: #cf9236;
+}
+
+section .submit a:hover {
+    opacity: 0.9;
+}
+
+section>div {
+    background: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+section .abstract h1 {
+    border-bottom: 1px solid #e2e5e8;
+    margin: 5px 0;
+    padding-bottom: 10px;
+    font-size: 20px;
+}
+
+section .abstract h1 span {
+    display: inline-block;
+    padding: 3px 10px;
+    background-color: #4b74ff;
+    color: #fff;
+    margin: 0 10px 0 5px;
+    border-radius: 5px;
+    vertical-align: middle;
+}
+
+section .abstract table {
+    width: 100%;
+    margin-top: 10px;
+    border-collapse: collapse;
+    border: 1px solid #c8cdd6;
+    border-spacing: 2px;
+
+}
+
+section .abstract table td {
+    border: 1px solid #c8cdd6;
+    position: relative;
+}
+
+section .abstract table td:first-child {
+    width: 10%;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: right;
+    min-width: 60px;
+}
+
+section .abstract table td input,
+section .abstract table td textarea {
+    height: 40px;
+    line-height: 40px;
+    margin: 10px;
+    border: none;
+    font-size: 14px;
+    width: 90%;
+    outline: none;
+    padding: 0 10px;
+}
+
+section .abstract table td textarea {
+    height: 100px;
+    line-height: 27px;
+    overflow: auto;
+}
+
+section .abstract table td span {
+    font-size: 16px;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+}
+
+section .cont {
+    height: 600px;
+}
+
+section .w-e-text-container {
+    height: 500px !important;
+}
+
+section .config .box {
+    border: 1px solid #e2e5e8;
+    padding: 20px 10px;
+    margin: 10px 0;
+}
+
+section .config .box h3 {
+    margin: 0 0 10px 10px;
+}
+
+section .config .sort {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+section .config .sort>span {
+    width: 60px;
+    margin: 10px 20px 10px 10px;
+    display: inline-block;
+    text-align: right;
+}
+
+section .config .sort .checkbox {
+    color: #606266;
+    font-weight: 500;
+    font-size: 14px;
+    display: inline-block;
+}
+
+section .config .sort .checkbox label {
+    width: 100%;
+    position: relative;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+section .config .sort .checkbox label input {
+    display: inline-block;
+    position: absolute;
+    outline: none;
+    border: 1px solid #dcdfe6;
+    border-radius: 2px;
+    width: 15px;
+    height: 15px;
+    background-color: #fff;
+    left: 0;
+    top: 2px;
+}
+
+section .config .sort .checkbox label span {
+    margin-left: 20px;
+}
+
+section .config .sort input[type="text"] {
+    width: calc(100% - 100px);
+    height: 30px;
+    line-height: 30px;
+    background-color: #fff;
+    background-image: none;
+    border-radius: 4px;
+    border: 1px solid #dcdfe6;
+}
+
+section .search h1 {
+    font-size: 22px;
+    font-weight: 500;
+    color: #4b74ff;
+    border-bottom: 2px solid #4b74ff;
+    padding: 0 20px;
+    height: 40px;
+    line-height: 40px;
+    margin-bottom: 20px;
+}
+
+section .search input,
+section .search select {
+    padding: 0 10px;
+    height: 28px;
+    line-height: 28px;
+    border-radius: 4px;
+    border: 1px solid #dcdfe6;
+    color: #606266;
+    display: inline-block;
+    width: 20%;
+    margin: 0 15px 10px 0;
+}
+
+section .search input {
+    padding: 0 20px;
+    background: url(../image/search.svg) no-repeat left center;
+
+}
+
+@media screen and (min-width:992px) {
+    section .search input {
+        width: 30%;
+    }
+
+    section .search select {
+        width: 15%;
+    }
+}
+
+section .search a.search,
+section a.view,
+section a.dele {
+    padding: 5px 15px;
+    font-size: 12px;
+    border-radius: 3px;
+    color: #fff;
+    background-color: #4b74ff;
+    border-color: #4b74ff;
+    display: inline-block;
+    white-space: nowrap;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+section .btn {
+    padding: 10px 0 10px 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+section a.dele {
+    background-color: #f56c6c;
+    border-color: #f56c6c;
+}
+
+section .con {
+    display: flex;
+    justify-content: space-around;
+}
+
+section .con .list {
+    width: 30%;
+}
+
+section .con .detail {
+    width: 70%;
+}
+
+section .con .list ul li {
+    background: url(../image/list.svg) no-repeat left center;
+    padding: 10px 10%;
+    line-height: 21px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+}
+
+section .con .list ul li.on,
+section .con .list ul li:hover {
+    background-color: #f1f3f4;
+}
+
+section .con .detail {
+    padding: 10px;
+}
+
+section .con .detail>h3 {
+    border-bottom: 1px solid #eee;
+    font-weight: 600;
+    color: #4b74ff;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+section .con .detail div {
+    padding: 10px;
+}
+
+section .con .detail div h1 {
+    margin: 20px;
+    font-size: 22px;
+    text-align: center;
+}
+
+section .con .detail div img {
+    width: 100%;
+}
+
+section .con .detail div p {
+    font-size: 16px;
+    text-indent: 24px;
+}
+
+@media screen and (max-width:992px) {
+    section .con {
+        display: block;
+    }
+
+    section .con .list {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    section .con .detail {
+        width: 100%;
+    }
+}
+
+section .con table {
+    text-align: center;
+    color: #606266;
+    overflow-y: auto;
+    border-spacing: 0;
+    border-collapse: separate;
+    border-spacing: 0px 8px;
+    width: 100%;
+}
+
+section .con table thead {
+    color: #909399;
+    font-weight: 500;
+    vertical-align: middle;
+}
+
+section .con table tbody tr {
+    border-radius: 4px;
+    border: 1px solid #ebeef5;
+    transition: background-color .25s ease;
+    background-color: #f2f3f5;
+}
+
+section .con table tbody tr:hover {
+    background-color: #ebeef5;
+}
+
+section .con table th,
+section .con table tbody td {
+    padding: 12px 5px;
+}
+
+section .con table thead th,
+section .con table td {
+    position: relative;
+}
+
+section .con table thead th:nth-child(1) {
+    width: 5%;
+}
+
+section .con table thead th:nth-child(3) {
+    width: 30%;
+}
+
+section .column,
+section .comment {
+    justify-content: start;
+}
+
+section .con.column table,
+section .con.comment table {
+    width: 80%;
+}
+
+section .con.column table thead th {
+    width: 5%;
+}
+section .con.comment table thead th{
+    width: 10%;
+}
+section .con.column table thead th:nth-child(3),
+section .con.comment table thead th:nth-child(3) {
+    width: 40%;
+}
+
+section .con.column table thead th:nth-child(4),
+section .con.comment table thead th:nth-child(4),
+section .con.comment table thead th:nth-child(5) {
+    width: 20%;
+}
