@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>中传云</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/edit.css">
+    <link rel="shortcut icon" href="image/logo.png" />
+</head>
+
+<body>
+    <div id="header" v-html="header"></div>
+    <section id="edit">
+        <div class="submit">
+            <a class="pub">发布</a>
+            <a class="ts">保存到草稿箱</a>
+        </div>
+        <div class="abstract">
+            <h1><span>1</span>稿件摘要</h1>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>标题</td>
+                        <td>
+                            <input v-model="title" type="text" name="title" maxlength="50" placeholder="请输入文章标题">
+                            <span>0/50</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>摘要</td>
+                        <td>
+                            <textarea v-model="description" name="description" maxlength="500"
+                                placeholder="摘要内容"></textarea>
+                            <span>0/500</span>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>副标题</td>
+                        <td>
+                            <input type="text" v-model="subtitle" name="subtitle" maxlength="50" placeholder="文章副标题">
+                            <span>0/50</span>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>关键词</td>
+                        <td>
+                            <input type="textarea" v-model="keywords" name="keywords" maxlength="50"
+                                placeholder="关键词1,关键词2">
+                            <span>0/50</span>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>缩略图</td>
+                        <td>
+                            <div class="img"> <a id="thumbbtn">自动提取</a>
+                                <a id="del">删除</a>
+                            </div>
+                            <img alt="" :src="thumb">
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="cont">
+            <h1><span>2</span>稿件内容</h1>
+            <div id="editorElem" style="min-height:600px;">
+
+            </div>
+        </div>
+        <div class="config">
+            <h1><span>3</span>稿件配置</h1>
+            <div class="box">
+                <h3>基本配置</h3>
+                <div class="sort">
+                    <span>栏目</span>
+                    <div id="cate" class="checkbox">
+                        <label v-for="(elem,i) of cates" :key="i"> <input type="checkbox" name="cate"
+                                :id="elem.catid"><span>{{elem.catname}}</span></label>
+                    </div>
+                </div>
+                <div class="sort">
+                    <span>分类</span>
+                    <div id="type" class="checkbox">
+                        <label v-for="(elem,i) of types" :key="i"> <input type="checkbox" name="type"
+                                :id="elem.catid"><span>{{elem.catname}}</span></label>
+
+                    </div>
+                </div>
+                <div class="sort">
+                    <span>标签</span>
+                    <div id="label" class="checkbox">
+                        <label v-for="(elem,i) of labels" :key="i"> <input type="checkbox" name="label"
+                                :id="elem.catid"><span>{{elem.catname}}</span></label>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <h3>其它</h3>
+                <div class="sort">
+                    <span>文章来源</span>
+                    <input v-model="source" type="text" name="source" maxlength="50">
+                </div>
+                <div class="sort">
+                    <span>文章作者</span>
+                    <input v-model="author" type="text" name="author" maxlength="50">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+</body>
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/wangEditor.min.js"></script>
+<script src="js/vue.js"></script>
+<script src="js/axios.min.js"></script>
+<script src="js/header.js"></script>
+<script src="js/edit.js"></script>
+
+<script>
+    new Vue({
+        el: "#edit",
+        data: {
+            cates: [],
+            types: [],
+            labels: [],
+            title: "",
+            description: "",
+            subtitle: "",
+            keywords: "",
+            thumb: "",
+            source: "",
+            author: "",
+        },
+        created() {
+            axios.get(`http://127.0.0.1:8080/edit/cate`).then(result => {
+                this.cates = result.data;
+            }),
+                axios.get(`http://127.0.0.1:8080/edit/type`).then(result => {
+                    this.types = result.data;
+                }),
+                axios.get(`http://127.0.0.1:8080/edit/label`).then(result => {
+                    this.labels = result.data;
+                }),
+                console.log(location.search.split("=")[1])
+            axios.get(`http://127.0.0.1:8080/edit/edit`, {
+                params: {
+                    lid: location.search.split("=")[1]
+                }
+            }).then(result => {
+                var E = window.wangEditor;
+                var editor = new E('#editorElem');
+                editor.create()
+                this.title = result.data[0].title;
+                this.description = result.data[0].description;
+                this.subtitle = result.data[0].subtitle;
+                this.thumb = result.data[0].thumb;
+                this.source = result.data[0].source;
+                this.author = result.data[0].author;
+                editor.txt.html(result.data[0].content);
+                document.querySelector("section img").style.display="block"
+            })
+
+        },
+    })
+</script>
+
+</html>

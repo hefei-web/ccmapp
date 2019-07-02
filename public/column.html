@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>中传云</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/edit.css">
+    <link rel="shortcut icon" href="image/logo.png" />
+</head>
+
+<body>
+    <div id="header" v-html="header"></div>
+    <section id="column">
+        <div class="search">
+            <h1>栏目管理</h1>
+        </div>
+        <div>
+            <div class="btn">
+                <a class="view">添加</a>
+                <a class="dele">删除</a>
+            </div>
+            <div class="con column">
+                <table>
+                    <thead>
+                        <th>
+                        </th>
+                        <th>
+                            ID
+                        </th>
+                        <th>
+                            栏目名称
+                        </th>
+                        <th>
+                            操作
+                        </th>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(elem,i) of catnames" :key="i">
+                            <td v-text="i+1"></td>
+                            <td>{{elem.catid}}</td>
+                            <td>{{elem.catname}}</td>
+                            <td>
+                                <a class="view">编辑</a>
+                                <a class="dele" @click="dele" :id="elem.catid">删除</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    <script src="js/vue.js"></script>
+    <script src="js/axios.min.js"></script>
+    <script src="js/header.js"></script>
+    <script>
+        new Vue({
+            el: "#column",
+            data: {
+                catnames: ""
+            },
+            methods: {
+                dele(e) {
+                    e.preventDefault();
+                   /*  var checkid = document.querySelector("section li.on").id;
+                    console.log(checkid)
+                    if (confirm("确认要删除吗？")) {
+                        axios.get("http://127.0.0.1:8080/index/deleColumn", {
+                            params: {
+                                lid: checkid
+                            }
+                        }).then(result => {
+                            console.log(result);
+                            alert("删除成功！");
+                            window.location.reload();
+                        })
+                    } */
+                }
+            },
+            created() {
+                axios.get("http://127.0.0.1:8080/index/cate").then(result => {
+                    console.log(result);
+                    this.catnames = result.data;
+                })
+            },
+        })
+    </script>
+
+
+</body>
+
+</html>

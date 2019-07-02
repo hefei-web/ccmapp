@@ -1,10 +1,6 @@
-.main {
-    background: #fff;
-}
 
 section {
-    padding: 10px;
-    background: #f3f3f3;
+    background: #fff;
     color: #2c2c2c;
     overflow: auto;
 }
@@ -40,8 +36,8 @@ section .submit a:hover {
 section>div {
     background: #fff;
     border-radius: 10px;
-    padding: 10px;
-    margin-bottom: 20px;
+    padding:5px 10px;
+    margin-top:10px;
 }
 
 section .abstract h1 {
@@ -50,8 +46,10 @@ section .abstract h1 {
     padding-bottom: 10px;
     font-size: 20px;
 }
-
-section .abstract h1 span {
+section h1{
+    margin:10px 0;
+}
+section h1 span {
     display: inline-block;
     padding: 3px 10px;
     background-color: #4b74ff;
@@ -95,6 +93,9 @@ section .abstract table td textarea {
     outline: none;
     padding: 0 10px;
 }
+.warn{
+    border:2px solid #f00 !important;
+}
 
 section .abstract table td textarea {
     height: 100px;
@@ -110,7 +111,7 @@ section .abstract table td span {
 }
 
 section .cont {
-    height: 600px;
+    height: 580px;
 }
 
 section .w-e-text-container {
@@ -138,6 +139,10 @@ section .config .sort>span {
     display: inline-block;
     text-align: right;
 }
+
+section .abstract table td input[type="file"]{
+    width:70%
+}    
 
 section .config .sort .checkbox {
     color: #606266;
@@ -222,7 +227,9 @@ section .search input {
 
 section .search a.search,
 section a.view,
-section a.dele {
+section a.dele,
+section #thumbbtn,
+section #del {
     padding: 5px 15px;
     font-size: 12px;
     border-radius: 3px;
@@ -233,6 +240,14 @@ section a.dele {
     white-space: nowrap;
     cursor: pointer;
     margin-left: 10px;
+}
+section .img{
+    margin:10px 0 10px 70%;
+}
+section .img+img{
+    width:300px;
+    display:none;
+    margin:-35px 0 10px 20px;
 }
 
 section .btn {
@@ -274,6 +289,10 @@ section .con .list ul li:hover {
 
 section .con .detail {
     padding: 10px;
+    display: none;
+}
+section .con .on{
+    display: block;
 }
 
 section .con .detail>h3 {
@@ -303,6 +322,7 @@ section .con .detail div img {
 section .con .detail div p {
     font-size: 16px;
     text-indent: 24px;
+    line-height: 31px;
 }
 
 @media screen and (max-width:992px) {

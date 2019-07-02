@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>中传云</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/edit.css">
+    <link rel="shortcut icon" href="image/logo.png" />
+</head>
+
+<body>
+    <div id="header" v-html="header"></div>
+    <section id="news">
+        <div class="search">
+            <h1>已发稿件</h1>
+            <div class="sele">
+                <input type="text" placeholder="请输入稿件标题" name="search">
+                <select name="" id="">
+                    <option value="">全部</option>
+                    <option value="">文章</option>
+                    <option value="">图集</option>
+                    <option value="">视频</option>
+                </select>
+                <select name="" id="">
+                    <option value="">全部</option>
+                    <option value="">独家</option>
+                    <option value="">最新</option>
+                    <option value="">最热</option>
+                    <option value="">重磅</option>
+                    <option value="">授权发布</option>
+                    <option value="">置顶</option>
+                    <option value="">广告</option>
+                    <option value="">推广</option>
+                </select>
+                <select name="" id="">
+                    <option value="">全部</option>
+                    <option value="">新闻</option>
+                    <option value="">要闻</option>
+                    <option value="">消息</option>
+                    <option value="">动态</option>
+                    <option value="">副刊</option>
+                    <option value="">评论</option>
+                </select>
+                <a class="search">搜索</a>
+            </div>
+        </div>
+        <div>
+            <div class="btn">
+                <a class="view" @click="edit">编辑</a>
+                <a class="dele" @click="dele">删除</a>
+            </div>
+            <div class="con">
+                <div class="list">
+                    <ul>
+                        <li v-for="(elem,i) of content" :key="i" @click="tab(i)" :id="elem.id" :class="show==i?'on':''">
+                            <h3 v-text="elem.title"></h3>
+                            <p>作者：{{elem.author}}</p>
+                            <p>写稿时间：{{elem.inputtime}}</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="detail" v-for="(elem,i) of content" :key="i" :id="i" :class="show==i?'on':''">
+                    <h3>稿件内容</h3>
+                    <div>
+                        <h1 v-text="elem.title"></h1>
+                        <img :src="elem.thumb">
+                        <p>
+                            {{elem.content}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="js/vue.js"></script>
+    <script src="js/axios.min.js"></script>
+    <script src="js/header.js"></script>
+    <script>
+        new Vue({
+            el: "#news",
+            data: {
+                content: {},
+                show: 0,
+            },
+            watch: {
+                content() {
+                    console.log(this.content)
+                }
+            },
+            methods: {
+                tab(i) {
+                    console.log(i)
+                    this.show = i;
+
+                },
+                dele() {
+                    var checkid = document.querySelector("section li.on").id;
+                    console.log(checkid)
+                    if (confirm("确认要删除吗？")) {
+                        axios.get("http://127.0.0.1:8080/index/delenews", {
+                            params: {
+                                lid: checkid
+                            }
+                        }).then(result => {
+                            console.log(result);
+                            alert("删除成功！");
+                            window.location.reload();
+                        })
+                    }
+                },
+                edit() {
+                    var checkid = document.querySelector("section li.on").id;
+                    window.open(`edit.html?lid=${checkid}`, '_blank')
+                }
+            },
+            created() {
+                axios.get("http://127.0.0.1:8080/index/news").then(result => {
+                    console.log(result);
+                    this.content = result.data;
+                })
+            },
+        })
+    </script>
+
+</body>
+
+</html>

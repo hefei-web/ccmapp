@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>中传云</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/edit.css">
+    <link rel="shortcut icon" href="image/logo.png" />
+</head>
+
+<body>
+    <div id="header" v-html="header"></div>
+    <section>
+        <div class="search">
+            <h1>网站用户</h1>
+            <div class="sele">
+                <input type="text" placeholder="请输入用户名" name="search">
+                <a class="search">搜索</a>
+            </div>
+        </div>
+        <div>
+            <div class="btn">
+                <a class="view">添加</a>
+                <a class="dele">删除</a>
+            </div>
+            <div class="con">
+                <table>
+                    <thead>
+                        <th>
+                            <input type="checkbox">
+                        </th>
+                        <th>
+                            用户名
+                        </th>
+                        <th>
+                            手机
+                        </th>
+                        <th>
+                            邮箱
+                        </th>
+                        <th>
+                            性别
+                        </th>
+                        <th>
+                            操作
+                        </th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input type="checkbox">
+                            </td>
+                            <td>用户-1</td>
+                            <td>15865879856</td>
+                            <td>123456@qq.com</td>
+                            <td>男</td>
+                            <td>
+                                <a class="view">编辑</a>
+                                <a class="dele">删除</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox">
+                            </td>
+                            <td>用户-2</td>
+                            <td>15865879856</td>
+                            <td>123456@qq.com</td>
+                            <td>男</td>
+                            <td>
+                                <a class="view">编辑</a>
+                                <a class="dele">删除</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox">
+                            </td>
+                            <td>用户-3</td>
+                            <td>15865879856</td>
+                            <td>123456@qq.com</td>
+                            <td>男</td>
+                            <td>
+                                <a class="view">编辑</a>
+                                <a class="dele">删除</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox">
+                            </td>
+                            <td>用户-4</td>
+                            <td>15865879856</td>
+                            <td>123456@qq.com</td>
+                            <td>男</td>
+                            <td>
+                                <a class="view">编辑</a>
+                                <a class="dele">删除</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox">
+                            </td>
+                            <td>用户-5</td>
+                            <td>15865879856</td>
+                            <td>123456@qq.com</td>
+                            <td>男</td>
+                            <td>
+                                <a class="view">编辑</a>
+                                <a class="dele">删除</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </section>
+    <script src="js/vue.js"></script>
+    <script src="js/axios.min.js"></script>
+    <script src="js/header.js"></script>
+
+
+
+</body>
+
+</html>

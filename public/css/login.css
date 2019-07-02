@@ -1,104 +1,106 @@
 .beg-login-bg {
-	background: rgba(0, 0, 0, 0) url("../image/login_home_background.jpg") no-repeat fixed center center / cover ;
+	background: rgba(0, 0, 0, 0) url("../image/bg.png") no-repeat fixed center center / cover ;
 	background-color: #393D49;
 	height: auto;
 }
 
+
+
 .beg-login-box {
-	width: 450px;
+	width: 700px;
+	height:400px;
 	margin: 10% auto;
 	background-color: rgba(255, 255, 255, 0.5);
 	border-radius: 10px;
 	color: aliceblue;
-}
-
-.beg-login-box header {
-	height: 39px;
-	padding: 10px;
-	border-bottom: 1px solid aliceblue;
-}
-
-.beg-login-box header h1 {
 	text-align: center;
-	font-size: 25px;
-	line-height: 40px;
+	display: flex;
+	justify-content: space-around;
+	overflow: hidden;
 }
-
-.beg-login-box .beg-login-main {
-	padding: 30px 90px 0;
-}
-
-.beg-login-main .layui-form-item {
+.beg-login-box .left{
+	width:40%;
 	position: relative;
+	background: url("../image/sider.png") no-repeat;
+	background-size: cover;
+	border-radius: 10px 0 0 10px;
 }
-
-.beg-login-main .layui-form-item .beg-login-icon {
+.beg-login-box .left .title{
 	position: absolute;
-	color: #cccccc;
-	top: 10px;
-	left: 10px;
+	top:30%;
+	left:17%
+}
+.beg-login-box .right{
+	width:60%;
+	overflow: hidden;
+	background: #fff;
+	border-radius: 0 10px 10px 0;
+	padding:30px 40px;
+}
+.beg-login-box .right h1{
+	color: #20303c;
+    font-weight: lighter;
+    font-size: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.beg-login-box .right img{
+	width: 30px;
+    margin-right: 7px;
+}
+.beg-login-box .right p{
+	text-align: left;
+    font-weight: lighter;
+    font-size: 14px;
+	margin: 20px 0 4px;
+	color: #707070;
+}
+.beg-login-box .right input{
+	border: none;
+    border-bottom: 1px solid #dcdfe6;
+    width: 100%;
+    padding: 10px 5px;
+    font-size: 20px;
+    font-weight: lighter;
+	color: #606266;
+	border-radius: 5px;
+}
+.beg-login-box .right button{
+	box-shadow: 0 2px 2px 0 rgba(0,0,0,.12);
+	border: 0;
+	background: linear-gradient(270deg,#ff2d55,#ff4500);
+    color: #fff;
+    width: 100%;
+    border-radius: 22px;
+    padding: 14px 23px;
+    font-weight: 500;
+	font-size: 14px;
+	cursor: pointer;
+	margin-top: 40px;
 }
 
-.beg-login-main .layui-form-item input {
-	padding-left: 34px;
-}
 
-.beg-login-box footer {
-	height: 35px;
-	padding: 10px 10px 0 10px;
-}
 
-.beg-login-box footer p {
-	line-height: 35px;
+footer{
+	position: fixed;
+	bottom:10px;
+	width: 100%;
+}
+footer p{
 	text-align: center;
+	color:#fff;
 }
 
-.beg-pull-left {
-	float: left !important;
-}
-
-.beg-pull-right {
-	float: right !important;
-}
-
-.beg-clear {
-	clear: both;
-}
-
-.beg-login-remember {
-	line-height: 38px;
-}
-
-.beg-login-remember .layui-form-switch {
-	margin-top: 0px;
-}
-
-.beg-login-code-box {
-	position: relative;
-	padding: 10px;
-}
-
-.beg-login-code-box input {
-	position: absolute;
-	width: 100px;
-}
-
-.beg-login-code-box img {
-	cursor: pointer;
-	position: absolute;
-	left: 115px;
-	height: 38px;
-}
-
-.verify{
-	cursor: pointer;
-	position: absolute;
-	right: 0px;
-	top:0px;
-	border:1px solid #e6e6e6;
-	width:104px;
-	padding:1px 1px;
-}
-.verify img{
-	width:100%;
+@media screen and (max-width:720px){
+	.beg-login-box {
+		width: 360px;
+		margin:20% auto;
+	}
+	.beg-login-box .left{
+		display: none;
+	}	
+	.beg-login-box .right{
+		width: 100%;
+	}
 }

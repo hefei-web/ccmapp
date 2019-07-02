@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>中传云</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/edit.css">
+    <link rel="shortcut icon" href="image/logo.png" />
+</head>
+
+<body>
+    <div id="header" v-html="header"></div>
+    <section id="comment">
+        <div class="search">
+            <h1>评论管理</h1>
+            <div class="sele">
+                <input type="text" placeholder="评论内容" name="search">
+                <a class="search">搜索</a>
+            </div>
+        </div>
+        <div>
+            <div class="btn">
+                <a class="dele">删除</a>
+            </div>
+            <div class="con comment">
+                <table>
+                    <thead>
+                        <th>
+                            评论者
+                        </th>
+                        <th>
+                            评论内容
+                        </th>
+                        <th>
+                            评论时间
+                        </th>
+                        <th>
+                            操作
+                        </th>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(elem,i) of comments" :key="i">
+                            <td>{{elem.uname}}</td>
+                            <td>{{elem.title}}</td>
+                            <td>{{elem.content}}</td>
+                            <td>{{elem.inputtime}}</td>
+                            <td>
+                                <a class="view">编辑</a>
+                                <a class="dele">删除</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/vue.js"></script>
+    <script src="js/axios.min.js"></script>
+    <script src="js/header.js"></script>
+    <script>
+        new Vue({
+            el: "#comment",
+            data: {
+                comments: ""
+            },
+            created() {
+                axios.get("http://127.0.0.1:8080/index/comment").then(result => {
+                    console.log(result);
+                    this.comments = result.data;
+                })
+            },
+        })
+    </script>
+
+
+</body>
+
+</html>

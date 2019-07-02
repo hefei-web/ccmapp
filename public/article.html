@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>中传云</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/edit.css">
+    <link rel="shortcut icon" href="image/logo.png" />
+</head>
+
+<body>
+    <div id="header" v-html="header"></div>
+    <section id="news">
+        <div class="search">
+            <h1>文章列表</h1>
+            <div class="sele">
+                <input type="text" placeholder="请输入稿件标题" name="search">
+                <select name="" id="">
+                    <option value="">所属栏目</option>
+                    <option value="">首页</option>
+                    <option value="">推荐</option>
+                    <option value="">关注</option>
+                    <option value="">新时代</option>
+                    <option value="">政务</option>
+                    <option value="">发现</option>
+                </select>
+                <a class="search">搜索</a>
+            </div>
+        </div>
+        <div>
+            <div class="btn">
+                <a class="view">添加</a>
+                <a class="dele">删除</a>
+            </div>
+            <div class="con">
+                <table>
+                    <thead>
+                        <th>
+                            <input type="checkbox">
+                        </th>
+                        <th>
+                            所属栏目
+                        </th>
+                        <th>
+                            文章标题
+                        </th>
+                        <th>
+                            发稿人
+                        </th>
+                        <th>
+                            更新时间
+                        </th>
+                        <th>
+                            状态
+                        </th>
+                        <th>
+                            操作
+                        </th>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(elem,i) of content" :key="i">
+                            <td>
+                                <input type="checkbox">
+                            </td>
+                            <td>{{elem.cate|cateFilter}}</td>
+                            <td>{{elem.title}}</td>
+                            <td>{{elem.author}}</td>
+                            <td>{{elem.inputtime}}</td>
+                            <td>已发布</td>
+                            <td>
+                                <a class="view">编辑</a>
+                                <a class="dele">删除</a>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    <script src="js/vue.js"></script>
+    <script src="js/axios.min.js"></script>
+    <script src="js/header.js"></script>
+    <script>
+        new Vue({
+            el: "#news",
+            data: {
+                content: {},
+                show: 0,
+            },
+            watch: {
+                content() {
+                    console.log(this.content)
+                }
+            },
+            methods: {
+                tab(i) {
+                    console.log(i)
+                    this.show = i;
+
+                }
+            },
+            created() {
+                axios.get("http://127.0.0.1:8080/index/news").then(result => {
+                    console.log(result);
+                    this.content = result.data;
+                })
+            },
+        })
+    </script>
+</body>
+
+</html>
